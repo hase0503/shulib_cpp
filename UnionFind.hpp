@@ -1,13 +1,16 @@
 struct UnionFind {
+	int vol;
 	vector<int> parents;
 
-	UnionFind(int n) : parents(n, -1) {}
+	UnionFind(int n) : vol(n), parents(n, -1) {}
 
 	int root(int x) {
 		return parents[x] < 0 ? x : parents[x] = root(parents[x]);
 	}
 
 	void merge(int x, int y) {
+		if (connected(x, y)) return;
+
 		x = root(x), y = root(y);
 		if (x == y) {
 			return;
@@ -15,6 +18,8 @@ struct UnionFind {
 		if (-parents[x] < -parents[y]) {
 			swap(x, y);
 		}
+
+		--vol;
 		parents[x] += parents[y];
 		parents[y] = x;
 	}
