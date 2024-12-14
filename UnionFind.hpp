@@ -9,8 +9,6 @@ struct UnionFind {
 	}
 
 	void merge(int x, int y) {
-		if (connected(x, y)) return;
-
 		x = root(x), y = root(y);
 		if (x == y) {
 			return;
