@@ -32,7 +32,7 @@ template<typename T, typename U> using mmap = multimap<T, U>;
 template<typename T, typename U> using umap = unordered_map<T, U>;
 template<typename T, typename U> using ummap = unordered_multimap<T, U>;
 template <typename T, typename U = vector<T>, typename V = less<T>> using pque = priority_queue<T, U, V>;
-template<typename T>struct range{struct I{T l,r,x,step;T operator*(){return x;}bool operator!=(I& _){return step>=0?l<=x&&x<r:r<x&&x<=l;}void operator++(){x+=step;}};I i;range(T r):i({0,r,0,1}){}range(T l,T r):i({l,r,l,1}){}range(T l,T r,T step):i({l,r,l,step}){}I& begin(){return i;}I& end(){return i;}};
+template<typename T>struct range{struct I{T l,r,x,step;T& operator*(){return x;}bool operator!=(I& _){return step>=0?l<=x&&x<r:r<x&&x<=l;}void operator++(){x+=step;}};I i;range(T r):i({0,r,0,1}){}range(T l,T r):i({l,r,l,1}){}range(T l,T r,T step):i({l,r,l,step}){}I& begin(){return i;}I& end(){return i;}};
 
 constexpr llong linf = LLONG_MAX / 2ll;
 constexpr int inf = INT_MAX / 2;
