@@ -40,6 +40,13 @@ template<typename T> inline bool chmin(T &a, T b) { return a > b ? (a = b, true)
 constexpr llong linf = LLONG_MAX / 2ll;
 constexpr int inf = INT_MAX / 2;
 
+template<typename T>
+T get() {
+	T x;
+	cin >> x;
+	return x;
+}
+
 #define all(x) x.begin(), x.end()
 #define rall(x) x.rbegin(), x.rend()
 
