@@ -31,7 +31,8 @@ template<typename T> using umset = unordered_multiset<T>;
 template<typename T, typename U> using mmap = multimap<T, U>;
 template<typename T, typename U> using umap = unordered_map<T, U>;
 template<typename T, typename U> using ummap = unordered_multimap<T, U>;
-template<typename T, typename U = vector<T>, typename V = less<T>> using pque = priority_queue<T, U, V>;
+template<typename T, typename U = vector<T>, typename V = less<T>> using prique = priority_queue<T, U, V>;
+template<typename T, typename U = vector<T>, typename V = greater<T>> using prique_less = priority_queue<T, U, V>;
 template<typename T>struct range{struct I{T l,r,x,step;T& operator*(){return x;}bool operator!=(I& _){return step>=0?l<=x&&x<r:r<x&&x<=l;}void operator++(){x+=step;}};I i;range(T r):i({0,r,0,1}){}range(T l,T r):i({l,r,l,1}){}range(T l,T r,T step):i({l,r,l,step}){}I& begin(){return i;}I& end(){return i;}};
 
 template<typename T> inline bool chmax(T &a, T b) { return a < b ? (a = b, true) : false; }
@@ -40,12 +41,7 @@ template<typename T> inline bool chmin(T &a, T b) { return a > b ? (a = b, true)
 constexpr llong linf = LLONG_MAX / 2ll;
 constexpr int inf = INT_MAX / 2;
 
-template<typename T>
-T get() {
-	T x;
-	cin >> x;
-	return x;
-}
+template<typename T> T get() {T x;cin >> x; return x; }
 
 #define all(x) x.begin(), x.end()
 #define rall(x) x.rbegin(), x.rend()
